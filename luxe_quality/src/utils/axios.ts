@@ -10,6 +10,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
   (response) => response.data,
   (error: AxiosError) => {
+    // @ts-ignore
     const errorMessage = error.response?.data?.message || "Request failed";
     return Promise.reject(errorMessage);
   },
